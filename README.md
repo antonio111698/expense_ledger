@@ -16,4 +16,23 @@ PostgreSQL in production, H2 locally.
 
 ## Status
 
-In development. Built as a learning project, in public.
+In development. Built as a learning project.
+
+
+## Running it locally
+
+**Requirements:** Java 21. Nothing else — Maven ships with the project via the
+wrapper script, so there is no separate install.
+
+```bash
+git clone <this-repo>
+cd Expense_Ledger
+.\mvnw.cmd spring-boot:run
+```
+
+On macOS or Linux use `./mvnw spring-boot:run` instead.
+
+The first run downloads Maven and all dependencies and takes a few minutes.
+Later runs start in a couple of seconds.
+
+The app is then available at **http://localhost:8080**. Stop it with `Ctrl+C`.
