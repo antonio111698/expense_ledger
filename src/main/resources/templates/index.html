@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Ledger</title>
+</head>
+<body>
+
+<h1>Expense Ledger</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>RON</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entry : ${entries}">
+        <td th:text="${#temporals.format(entry.date, 'dd-MM-yyyy')}">01-01-2026</td>
+        <td th:text="${entry.description}">placeholder for description</td>
+        <td th:text="${entry.amount}">placeholder for amount</td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
