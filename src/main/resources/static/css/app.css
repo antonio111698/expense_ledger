@@ -1,0 +1,16 @@
+
+.col-date {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap ;
+}
+
+.col-amount {
+    text-align: right ;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.col-description {
+    text-align: center;
+    width: 100%;
+}

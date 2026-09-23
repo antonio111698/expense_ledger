@@ -19,7 +19,7 @@ public class HomeController {
                 new Entry(LocalDate.of(2026, 9, 14), "Groceries", new BigDecimal("142.50")),
                 new Entry(LocalDate.now(), "Coffee", new BigDecimal("15.00")),
                 new Entry(LocalDate.of(2026, 9, 17), "Utilities", new BigDecimal("500")),
-                new Entry(LocalDate.of(2026, 9, 17), "Car Repair", new BigDecimal("800"))
+                new Entry(LocalDate.of(2026, 9, 17), "Car parts", new BigDecimal("800"))
 
         );
 
