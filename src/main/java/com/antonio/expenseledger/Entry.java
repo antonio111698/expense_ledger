@@ -9,18 +9,18 @@ import java.time.LocalDate;
  */
 public class Entry {
 
-    private final LocalDate date;
+    private final LocalDate entryDate;
     private final String description;
     private final BigDecimal amount;
 
-    public Entry(LocalDate date, String description, BigDecimal amount) {
-        this.date = date;
+    public Entry(LocalDate entryDate, String description, BigDecimal amount) {
+        this.entryDate = entryDate;
         this.description = description;
         this.amount = amount.setScale(2,RoundingMode.HALF_UP);
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getEntryDate() {
+        return entryDate;
     }
 
     public String getDescription() {

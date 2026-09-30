@@ -23,7 +23,7 @@
             </thead>
             <tbody class="table-group-divider">
             <tr th:each="entry : ${entries}">
-                <td class="col-date" th:text="${#temporals.format(entry.date, 'dd-MM-yyyy')}">01-01-2026</td>
+                <td class="col-date" th:text="${#temporals.format(entry.entryDate, 'dd-MM-yyyy')}">01-01-2026</td>
                 <td class="col-description" th:text="${entry.description}">placeholder for description</td>
                 <td class="col-amount" th:text="${entry.amount}">placeholder for amount</td>
             </tr>

@@ -1,5 +1,4 @@
-# Build output — generated from source, never committed.
-# These are rebuilt in seconds; committing them creates noise in every diff.
+# Build output
 target/
 *.class
 
@@ -10,8 +9,11 @@ target/
 
 
 # Secrets — files holding passwords, keys or connection strings.
-# Git history is permanent, so a secret committed once is exposed forever.
 .env
 
 application-local.properties
+
+/data/
+
+
 
