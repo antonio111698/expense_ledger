@@ -4,26 +4,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller
 public class HomeController {
 
+    private final FinancialEntryRepository financialEntryRepository;
+
+    HomeController(FinancialEntryRepository financialEntryRepository){
+        this.financialEntryRepository = financialEntryRepository;
+    }
+
     @GetMapping("/")
     public String home(Model model) {
 
-        List<Entry> entries = List.of(
-                new Entry(LocalDate.of(2026, 9, 14), "Groceries", new BigDecimal("142.50")),
-                new Entry(LocalDate.now(), "Coffee", new BigDecimal("15.00")),
-                new Entry(LocalDate.of(2026, 9, 17), "Utilities", new BigDecimal("500")),
-                new Entry(LocalDate.of(2026, 9, 17), "Car parts", new BigDecimal("800"))
+        List<FinancialEntry> financialEntries = financialEntryRepository.findAll();
 
-        );
-
-        model.addAttribute("entries", entries);
+        model.addAttribute("entries", financialEntries);
 
         return "index";
     }
