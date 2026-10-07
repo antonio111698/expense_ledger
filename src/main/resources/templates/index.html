@@ -11,7 +11,36 @@
 
 <div class="container">
     <h1 class="mt-5 mb-2">Expense Ledger</h1>
-    <p class="alert alert-info" th:if="${entries.isEmpty()}">No records</p>
+
+    <form class="mb-4" action="/entries" method="post">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label" for="date">Date:</label>
+                <input class="form-control" id="date" name="entryDate" required
+                       th:value="${#temporals.format(#temporals.createToday(), 'yyyy-MM-dd')}" type="date">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label" for="description">Description</label>
+                <input class="form-control" id="description" name="description" required type="text">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" for="amount">Price</label>
+                <div class="input-group">
+                    <input class="form-control" id="amount" inputmode="decimal" min="0.00" name="amount" placeholder="0.00"
+                           required step="0.01" type="number">
+                    <span class="input-group-text">RON</span>
+                </div>
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Add spending">
+            </div>
+
+
+        </div>
+    </form>
+
+
+    <p class="alert alert-info " th:if="${entries.isEmpty()}">No records</p>
     <div class="table-responsive" th:unless="${entries.isEmpty()}">
         <table class="table table-hover ">
             <thead>
