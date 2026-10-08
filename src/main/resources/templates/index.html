@@ -48,6 +48,7 @@
                 <th class="col-date">Date</th>
                 <th class="col-description">Description</th>
                 <th class="col-amount">RON</th>
+                <th></th>
             </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -55,6 +56,12 @@
                 <td class="col-date" th:text="${#temporals.format(entry.entryDate, 'dd-MM-yyyy')}">01-01-2026</td>
                 <td class="col-description" th:text="${entry.description}">placeholder for description</td>
                 <td class="col-amount" th:text="${entry.amount}">placeholder for amount</td>
+                <td>
+                    <form action="/entries/delete" method="post">
+                        <input type="hidden" name="id" th:value="${entry.id}">
+                        <input class="btn btn-outline-danger btn-sm" type="submit" value="Delete">
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>

@@ -23,12 +23,17 @@ public class FinancialEntry {
     private BigDecimal amount;
 
 
-    protected FinancialEntry() { }
+    protected FinancialEntry() {
+    }
 
     public FinancialEntry(LocalDate entryDate, String description, BigDecimal amount) {
         this.entryDate = entryDate;
         this.description = description;
-        this.amount = amount.setScale(2,RoundingMode.HALF_UP);
+        this.amount = amount.setScale(2, RoundingMode.HALF_UP);
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public LocalDate getEntryDate() {

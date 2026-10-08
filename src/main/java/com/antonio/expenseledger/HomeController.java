@@ -38,6 +38,13 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @PostMapping("/entries/delete")
+    public String deleteEntry(@RequestParam(name = "id") Long id) {
+        financialEntryRepository.deleteById(id);
+
+        return "redirect:/";
+    }
+
     @GetMapping("/greeting")
     @ResponseBody
     public String greeting() {
