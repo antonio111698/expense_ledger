@@ -31,8 +31,9 @@ public class HomeController {
     }
 
     @PostMapping("/entries")
-    public String addEntry(@RequestParam(name = "entryDate") LocalDate entryDate, @RequestParam(name = "description") String description, @RequestParam(name = "amount") BigDecimal amount) {
-        FinancialEntry financialEntry = new FinancialEntry(entryDate, description, amount);
+    public String addEntry(@RequestParam(name = "entryDate") LocalDate entryDate, @RequestParam(name = "description") String description, @RequestParam(name = "amount") BigDecimal amount, @RequestParam(name = "entryType") EntryType entryType) {
+
+        FinancialEntry financialEntry = new FinancialEntry(entryDate, description, amount, entryType);
         financialEntryRepository.save(financialEntry);
 
         return "redirect:/";

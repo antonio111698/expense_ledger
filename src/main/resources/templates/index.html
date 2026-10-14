@@ -14,7 +14,7 @@
 
     <form class="mb-4" action="/entries" method="post">
         <div class="row g-3">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label class="form-label" for="date">Date:</label>
                 <input class="form-control" id="date" name="entryDate" required
                        th:value="${#temporals.format(#temporals.createToday(), 'yyyy-MM-dd')}" type="date">
@@ -23,7 +23,14 @@
                 <label class="form-label" for="description">Description</label>
                 <input class="form-control" id="description" name="description" required type="text">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
+                <label class="form-label" for="entryType">Type</label>
+                <select class="form-select" id="entryType" name="entryType" >
+                    <option value="EXPENSE" selected>Expense</option>
+                    <option value="INCOME">Income</option>
+                </select>
+            </div>
+            <div class="col-md-2">
                 <label class="form-label" for="amount">Price</label>
                 <div class="input-group">
                     <input class="form-control" id="amount" inputmode="decimal" min="0.00" name="amount" placeholder="0.00"
@@ -48,6 +55,7 @@
                 <th class="col-date">Date</th>
                 <th class="col-description">Description</th>
                 <th class="col-amount">RON</th>
+                <th class="col-entryType">Type</th>
                 <th></th>
             </tr>
             </thead>
@@ -56,6 +64,7 @@
                 <td class="col-date" th:text="${#temporals.format(entry.entryDate, 'dd-MM-yyyy')}">01-01-2026</td>
                 <td class="col-description" th:text="${entry.description}">placeholder for description</td>
                 <td class="col-amount" th:text="${entry.amount}">placeholder for amount</td>
+                <td class="col-entryType" th:text="${entry.entryType.text}">placeholder for entryType</td>
                 <td>
                     <form action="/entries/delete" method="post">
                         <input type="hidden" name="id" th:value="${entry.id}">

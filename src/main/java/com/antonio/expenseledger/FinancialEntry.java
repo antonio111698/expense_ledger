@@ -1,9 +1,6 @@
 package com.antonio.expenseledger;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -21,15 +18,17 @@ public class FinancialEntry {
     private LocalDate entryDate;
     private String description;
     private BigDecimal amount;
-
+    @Enumerated(EnumType.STRING)
+    private EntryType entryType;
 
     protected FinancialEntry() {
     }
 
-    public FinancialEntry(LocalDate entryDate, String description, BigDecimal amount) {
+    public FinancialEntry(LocalDate entryDate, String description, BigDecimal amount, EntryType entryType) {
         this.entryDate = entryDate;
         this.description = description;
         this.amount = amount.setScale(2, RoundingMode.HALF_UP);
+        this.entryType = entryType;
     }
 
     public Long getId() {
@@ -46,5 +45,9 @@ public class FinancialEntry {
 
     public BigDecimal getAmount() {
         return amount;
+    }
+
+    public EntryType getEntryType() {
+        return entryType;
     }
 }
